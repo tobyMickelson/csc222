@@ -11,7 +11,7 @@ set shiftwidth=4  "
 
 " - C++ Compilation and running
 let cpp_compiler_args = '' " Initalize variable, don't remove
-"let cpp_compiler_args = cpp_compiler_args . '-w' " No inhibit all warnings, not reccomended
+"let cpp_compiler_args = cpp_compiler_args . '-w' " Inhibit all warnings, not reccomended
 "let cpp_compiler_args = cpp_compiler_args . '-Werror' " Convert warnings to errors (doesn't compile if any warnings exist)
 let cpp_compiler_args = cpp_compiler_args . '-Wall' " All common warnings, reccomended
 "let cpp_compiler_args = cpp_compiler_args . '-Wextra' " Some more warnings that are not included in all

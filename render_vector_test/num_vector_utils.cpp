@@ -22,8 +22,13 @@ int num_vector_sum(const vector<int>& numbers) {
     return sum;
 }
 
-int num_vector_product(const vector<int>&) {
-    return 0;
+int num_vector_product(const vector<int>& numbers) {
+    int product = 1;
+
+    for (int number : numbers)
+        product *= number;
+
+    return product;
 }
 vector<int> only_evens(const vector<int>&) {
     return vector<int> {};

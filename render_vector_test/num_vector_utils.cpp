@@ -30,6 +30,13 @@ int num_vector_product(const vector<int>& numbers) {
 
     return product;
 }
-vector<int> only_evens(const vector<int>&) {
-    return vector<int> {};
+
+vector<int> only_evens(const vector<int>& numbers) {
+    vector<int> output = {};
+
+    for (int number : numbers)
+        if (number % 2 == 0)
+            output.push_back(number);
+
+    return output;
 }

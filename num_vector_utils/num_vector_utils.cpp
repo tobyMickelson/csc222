@@ -5,6 +5,9 @@ using namespace std;
 string render_num_vector(const vector<int>& numbers) {
     string output = "";
 
+    if (numbers.size() == 0)
+        return output;
+
     for (int number : numbers)
         output += to_string(number) + " ";
 

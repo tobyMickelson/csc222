@@ -13,6 +13,20 @@ TEST_CASE("Testing render_num_vector") {
     CHECK(numstr == expected);
 }
 
+TEST_CASE("Testing render_num_vector no inputs") {
+    vector<int> nums = {};
+    string numstr = render_num_vector(nums);
+    string expected = "";
+    CHECK(numstr == expected);
+}
+
+TEST_CASE("Testing render_num_vector 3+ inputs") {
+    vector<int> nums = {1, 7, 3, 6, 9};
+    string numstr = render_num_vector(nums);
+    string expected = "1 7 3 6 9";
+    CHECK(numstr == expected);
+}
+
 TEST_CASE("Testing num_vector_sum") {
     vector<int> nums = {1, 3, 7};
     CHECK(11 == num_vector_sum(nums));

@@ -2,29 +2,18 @@
 #include <string>
 using namespace std;
 
-enum ship_type {
-    motorboat;
-    spaceship;
-    bob;
-    bobi_needs_a_friend;
-    matilda;
-}
-
-enum ship_rotation {
-    horazontal;
-    vertical;
-}
-
 struct Ship {
     //vars
     int x, y;
-    ship_type type;
-    ship_rotation rotation;
+    int length;
+    bool is_up;
+    vector<bool> exploded_bits;
 
     //constructors
-    Ship(int, int, ship_type, ship_rotation);
+    Ship(int, int, int, bool);
 
     //method functions (this is definatnly the correct name)
-    bool explode(int x, int y);
+    bool explode(int, int);
+    
 //i wrote this
-
+};

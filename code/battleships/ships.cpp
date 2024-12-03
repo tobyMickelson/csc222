@@ -7,7 +7,7 @@ Ship::Ship(int x, int y, int length, bool is_up){
         this -> y = y;
         this -> length = length;
         this -> is_up = is_up;
-        exploded_bits = vector<bool>;
+        exploded_bits = vector<bool>();
         for (int i; i < length; i++)
             exploded_bits.push_back(false);
 }

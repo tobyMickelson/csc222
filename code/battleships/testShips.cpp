@@ -16,9 +16,3 @@ TEST_CASE("Yes (vertical) bombs away") {
 TEST_CASE("No (vertical) bombs away") {
     CHECK(Ship(4, 5, 3, true).explode(4, 9) == false);
 }
-/*
-int xbomb;
-    cin >> xbomb;
-    int ybomb;
-    cin >> ybomb;
-*/

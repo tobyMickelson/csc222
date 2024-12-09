@@ -1,5 +1,5 @@
 #include "ships.h"
-#include <cstdlib>
+
 using namespace std;
 
 Ship::Ship(int x, int y, int length, bool is_up){

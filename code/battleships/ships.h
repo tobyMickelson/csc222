@@ -1,13 +1,13 @@
 #pragma once
 #include <string>
-using namespace std;
+#include <vector>
 
 struct Ship {
     //vars
     int x, y;
     int length;
     bool is_up;
-    vector<bool> exploded_bits;
+    std::vector<bool> exploded_bits;
 
     //constructors
     Ship(int, int, int, bool);
@@ -15,5 +15,5 @@ struct Ship {
     //method functions (this is definatnly the correct name)
     bool explode(int, int);
     
-//i wrote this
+    //i [alessandra,] wrote this
 };

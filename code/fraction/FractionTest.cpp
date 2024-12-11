@@ -44,3 +44,10 @@ TEST_CASE("Test gcd function") {
     CHECK(gcd(16, 12) == 4);
     CHECK(gcd(18, 27) == 9);
 }
+
+TEST_CASE("Test integer Fractions render properly") {
+    Fraction f1(5, 1);
+    CHECK(f1.to_string() == "5");
+    Fraction f2(18, 3);
+    CHECK(f1.to_string() == "6");
+}

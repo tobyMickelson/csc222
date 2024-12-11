@@ -9,6 +9,7 @@ class Fraction {
         int denominator;
 
         Fraction();
+        Fraction(int number);
         Fraction(int numerator, int denominator);
         Fraction(std::string fraction);
 

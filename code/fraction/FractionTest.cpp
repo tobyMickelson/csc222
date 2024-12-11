@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include "../doctest.h"
+#include "doctest/doctest.h"
 #include "Fraction.h"
 
 using namespace std;
@@ -47,7 +47,16 @@ TEST_CASE("Test gcd function") {
 
 TEST_CASE("Test integer Fractions render properly") {
     Fraction f1(5, 1);
-    CHECK(f1.to_string() == "5");
+    CHECK(f1.toString() == "5");
     Fraction f2(18, 3);
-    CHECK(f1.to_string() == "6");
+    CHECK(f2.toString() == "6");
+}
+
+TEST_CASE("Test can construct Fraction from integer") {
+    Fraction f1(5);
+    CHECK(f1.numerator == 5);
+    CHECK(f1.denominator == 1);
+    Fraction f2(42);
+    CHECK(f2.numerator == 42);
+    CHECK(f2.denominator == 1);
 }

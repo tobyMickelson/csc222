@@ -1,10 +1,14 @@
 #include "Fraction.h"
-#include "doctest/doctest.h"
 
 using namespace std;
 
 Fraction::Fraction() {
     numerator = 0;
+    denominator = 1;
+}
+
+Fraction::Fraction(int number) {
+    numerator = number;
     denominator = 1;
 }
 
@@ -22,7 +26,10 @@ Fraction::Fraction(string fraction) {
 }
 
 std::string Fraction::toString() {
-    return to_string(numerator) + "/" + to_string(denominator);
+    if (denominator == 1)
+        return to_string(numerator);
+    else
+        return to_string(numerator) + "/" + to_string(denominator);
 }
 
 int gcd(int numerator, int denominator) {

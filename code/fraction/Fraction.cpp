@@ -30,6 +30,31 @@ Fraction::Fraction(string fraction) {
     }
 }
 
+    bool Fraction::operator>(Fraction other) {
+        return false;
+    }
+    
+    bool Fraction::operator==(Fraction other) {
+        return false;
+    }
+    
+    bool Fraction::operator<(Fraction other) {
+        return false;
+    }
+    
+    bool Fraction::operator!=(Fraction other) {
+        return false;
+    }
+    
+    bool Fraction::operator>=(Fraction other) {
+        return false;
+    }
+    
+    bool Fraction::operator<=(Fraction other) {
+        return false;
+    }
+    
+
 std::string Fraction::toString() {
     if (denominator == 1)
         return to_string(numerator);

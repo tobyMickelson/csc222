@@ -13,6 +13,13 @@ class Fraction {
         Fraction(int numerator, int denominator);
         Fraction(std::string fraction);
 
+        bool operator>(Fraction other);
+        bool operator==(Fraction other);
+        bool operator<(Fraction other);
+        bool operator!=(Fraction other);
+        bool operator>=(Fraction other);
+        bool operator<=(Fraction other);
+
         std::string toString();
 };
 

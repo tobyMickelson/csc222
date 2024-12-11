@@ -1,6 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include <iostream>
 #include <string>
 #include "doctest/doctest.h"
 #include "Fraction.h"
@@ -81,4 +80,16 @@ TEST_CASE("Test comparison operators for Fractions") {
     CHECK((f3 != f2) == true);
     CHECK((f4 >= f1) == true);
     CHECK((f4 <= f2) == true);
+}
+
+TEST_CASE("Test numerical operators fro Fractions") {
+    Fraction f1(1, 4);
+    Fraction f2(3, 4);
+    Fraction f3(1, 2);
+    Fraction f4(5, 5);
+    Fraction f5(3, 8);
+    CHECK((f2 + f1) == f4);
+    CHECK((f2 - f1) == f3);
+    CHECK((f2 * f3) == f5);
+    CHECK((f5 / f3) == f2);
 }

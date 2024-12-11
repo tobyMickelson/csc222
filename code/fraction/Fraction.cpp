@@ -30,28 +30,44 @@ Fraction::Fraction(string fraction) {
     }
 }
 
-bool Fraction::operator>(Fraction other) {
+bool Fraction::operator>(const Fraction other) const {
     return this->numerator * other.denominator > other.numerator * this->denominator;
 }
 
-bool Fraction::operator==(Fraction other) {
+bool Fraction::operator==(const Fraction other) const {
     return this->numerator * other.denominator == other.numerator * this->denominator;
 }
 
-bool Fraction::operator<(Fraction other) {
+bool Fraction::operator<(const Fraction other) const {
     return this->numerator * other.denominator < other.numerator * this->denominator;
 }
 
-bool Fraction::operator!=(Fraction other) {
+bool Fraction::operator!=(const Fraction other) const {
     return this->numerator * other.denominator != other.numerator * this->denominator;
 }
 
-bool Fraction::operator>=(Fraction other) {
+bool Fraction::operator>=(const Fraction other) const {
     return this->numerator * other.denominator >= other.numerator * this->denominator;
 }
 
-bool Fraction::operator<=(Fraction other) {
+bool Fraction::operator<=(const Fraction other) const {
     return this->numerator * other.denominator <= other.numerator * this->denominator;
+}
+
+Fraction Fraction::operator+(const Fraction other) const {
+    return Fraction((this->numerator * other.denominator) + (other.numerator * this->denominator), (this->denominator * other.denominator));
+}
+
+Fraction Fraction::operator-(const Fraction other) const {
+    return Fraction((this->numerator * other.denominator) - (other.numerator * this->denominator), (this->denominator * other.denominator));
+}
+
+Fraction Fraction::operator*(const Fraction other) const {
+    return Fraction((this->numerator * other.numerator), (this->denominator * other.denominator));
+}
+
+Fraction Fraction::operator/(const Fraction other) const {
+    return Fraction((this->numerator / other.numerator), (this->denominator / other.denominator));
 }
 
 std::string Fraction::toString() {

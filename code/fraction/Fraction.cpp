@@ -20,9 +20,14 @@ Fraction::Fraction(int numerator, int denominator) {
 
 Fraction::Fraction(string fraction) {
     string delimiter = "/";
-    numerator = stoi(fraction.substr(0, fraction.find(delimiter)));
-    fraction.erase(0, fraction.find(delimiter) + delimiter.length());
-    denominator = stoi(fraction);
+    if (fraction.find(delimiter) == -1)  {
+        numerator = stoi(fraction);
+        denominator = 1;
+    } else {
+        numerator = stoi(fraction.substr(0, fraction.find(delimiter)));
+        fraction.erase(0, fraction.find(delimiter) + delimiter.length());
+        denominator = stoi(fraction);
+    }
 }
 
 std::string Fraction::toString() {

@@ -35,7 +35,7 @@ Fraction::Fraction(string fraction) {
     }
     
     bool Fraction::operator==(Fraction other) {
-        return false;
+        return numerator == other.numerator && denominator == other.denominator;
     }
     
     bool Fraction::operator<(Fraction other) {
@@ -43,7 +43,7 @@ Fraction::Fraction(string fraction) {
     }
     
     bool Fraction::operator!=(Fraction other) {
-        return false;
+        return !this->operator==(other);
     }
     
     bool Fraction::operator>=(Fraction other) {

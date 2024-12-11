@@ -30,30 +30,33 @@ Fraction::Fraction(string fraction) {
     }
 }
 
-    bool Fraction::operator>(Fraction other) {
-        return false;
-    }
-    
-    bool Fraction::operator==(Fraction other) {
-        return numerator == other.numerator && denominator == other.denominator;
-    }
-    
-    bool Fraction::operator<(Fraction other) {
-        return false;
-    }
-    
-    bool Fraction::operator!=(Fraction other) {
-        return !this->operator==(other);
-    }
-    
-    bool Fraction::operator>=(Fraction other) {
-        return false;
-    }
-    
-    bool Fraction::operator<=(Fraction other) {
-        return false;
-    }
-    
+#warning operator> not implimented
+bool Fraction::operator>(Fraction other) {
+    return false;
+}
+
+bool Fraction::operator==(Fraction other) {
+    return numerator == other.numerator && denominator == other.denominator;
+}
+
+#warning operator< not implimented
+bool Fraction::operator<(Fraction other) {
+    return false;
+}
+
+bool Fraction::operator!=(Fraction other) {
+    return !this->operator==(other);
+}
+
+#warning operator>= not implimented
+bool Fraction::operator>=(Fraction other) {
+    return false;
+}
+
+#warning operator<= not implimented
+bool Fraction::operator<=(Fraction other) {
+    return false;
+}
 
 std::string Fraction::toString() {
     if (denominator == 1)

@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <random>
+#include <utility>
 
 Deck::Deck() {
     for (int a = 0; a < 4; a++) {
@@ -39,4 +40,10 @@ Card Deck::remove_card() {
 
 void Deck::add_card(Card card) {
     push_back(card);
+}
+
+void swap_cards(Card * a, Card * b) {
+    Card temp = * a;
+    * a = * b;
+    * b = temp;
 }

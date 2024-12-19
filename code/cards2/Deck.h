@@ -22,6 +22,8 @@ class Deck : public std::vector<Card> {
         void add_card(Card card);
 };
 
+void swap_cards(Card * a, Card * b);
+
 
 #endif //CSC_222_DECK_H
 

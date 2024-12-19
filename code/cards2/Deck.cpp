@@ -1,6 +1,8 @@
 #include "Deck.h"
+#include "Cards.h"
 
 #include <algorithm>
+#include <cstddef>
 #include <random>
 #include <utility>
 
@@ -16,6 +18,11 @@ Deck::Deck(int numCards) {
     for (int a = 0; a < numCards; a++) {
         push_back(Card(Suit::None, Rank::Joker));
     }
+}
+
+Deck::Deck(Card * begin, Card * end) {
+    for (Card * ptr = begin; ptr <= end; ptr++)
+        push_back(* ptr);
 }
 
 int Deck::find(Card card) {
@@ -46,4 +53,8 @@ void swap_cards(Card * a, Card * b) {
     Card temp = * a;
     * a = * b;
     * b = temp;
+}
+
+Deck Deck::subdeck(size_t start, size_t end) {
+    return Deck(data() + start, data() + end);
 }

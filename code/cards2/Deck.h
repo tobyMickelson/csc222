@@ -13,6 +13,7 @@ class Deck : public std::vector<Card> {
     public:
         Deck();
         Deck(int numCards);
+        Deck(Card * start, Card * end);
 
         int find(Card card);
 
@@ -20,6 +21,7 @@ class Deck : public std::vector<Card> {
         void shuffle();
         Card remove_card();
         void add_card(Card card);
+        Deck subdeck(size_t start, size_t end);
 };
 
 void swap_cards(Card * a, Card * b);

@@ -4,15 +4,14 @@
 #include <string>
 
 enum Suit {
-    Hearts,
     Clubs,
     Diamonds,
+    Hearts,
     Spades,
     None
 };
 
 enum Rank {
-    Ace,
     Two,
     Three,
     Four,
@@ -25,16 +24,15 @@ enum Rank {
     Jack,
     Queen,
     King,
+    Ace,
     Joker
 };
 
 class Card {
-
     Suit suit;
     Rank rank;
 
     inline static std::string rankStrings[14] = {
-        "Ace",
         "2",
         "3",
         "4",
@@ -47,13 +45,14 @@ class Card {
         "Jack",
         "Queen",
         "King",
+        "Ace",
         "Joker"
     };
 
     inline static std::string suitStrings[4] = {
-        "Hearts",
         "Clubs",
         "Diamonds",
+        "Hearts",
         "Spades"
     };
 

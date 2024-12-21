@@ -22,6 +22,8 @@ class Deck : public std::vector<Card> {
         Card remove_card();
         void add_card(Card card);
         Deck subdeck(size_t start, size_t end);
+        Deck merge_sort();
+        void add_cards(Deck cards);
 };
 
 void swap_cards(Card * a, Card * b);

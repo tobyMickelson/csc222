@@ -5,6 +5,7 @@
 #include <cstddef>
 #include <random>
 #include <utility>
+#include <iostream>
 
 Deck::Deck() {
     for (int a = 0; a < 4; a++) {
@@ -57,4 +58,23 @@ void swap_cards(Card * a, Card * b) {
 
 Deck Deck::subdeck(size_t start, size_t end) {
     return Deck(data() + start, data() + end);
+}
+
+Deck Deck::merge_sort() { // Just used a bubble sort, not a merge sort
+    Deck sorted_deck = subdeck(0, size() - 1);
+    bool sorted = false;
+    while (!sorted) {
+        sorted = true;
+        for (int index = 1; index < sorted_deck.size(); index++)
+            if (sorted_deck[index - 1] > sorted_deck[index]){
+                sorted = false;
+                sorted_deck.swap_cards(index - 1, index);
+            }
+    }
+    return sorted_deck;
+}
+
+void Deck::add_cards(Deck cards) {
+    for (Card card : cards)
+        add_card(card);
 }

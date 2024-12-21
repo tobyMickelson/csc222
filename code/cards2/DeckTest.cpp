@@ -52,6 +52,12 @@ TEST_CASE("Test can swap two random cards") {
     swap_cards(&c1, &c2);
     CHECK(c1.to_string() == "Jack of Diamonds");
     CHECK(c2.to_string() == "Queen of Hearts");
+    Deck d1(0);
+    d1.add_card(Card(Hearts, Queen));
+    d1.add_card(Card(Spades, Ace));
+    swap_cards(&d1[0], &d1[1]);
+    CHECK(d1[0].to_string() == "Ace of Spades");
+    CHECK(d1[1].to_string() == "Queen of Hearts");
 }
 
 TEST_CASE("Test create subdecks") {
@@ -59,4 +65,20 @@ TEST_CASE("Test create subdecks") {
     Deck subdeck = deck.subdeck(2, 10);
     CHECK(subdeck.size() == 9);
     CHECK(subdeck[0].to_string() == "4 of Clubs");
+}
+
+TEST_CASE("Test add_cards and merge_sort") {
+    Deck d1(0);
+    Deck d2(0);
+    d1.add_card(Card(Spades, Ace));
+    d1.add_card(Card(Hearts, Queen));
+    d1.add_card(Card(Clubs, Four));
+    d1.add_card(Card(Diamonds, Four));
+    d2.add_card(Card(Clubs, Five));
+    d2.add_card(Card(Hearts, Ten));
+    d2.add_card(Card(Clubs, Two));
+    d1.add_cards(d2);
+    Deck d3 = d1.merge_sort();
+    CHECK(d3[0].to_string() == "2 of Clubs");
+    CHECK(d3[1].to_string() == "4 of Clubs");
 }

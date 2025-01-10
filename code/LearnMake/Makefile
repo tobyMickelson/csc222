@@ -1,6 +1,6 @@
-all: one = cool
+%.c: one = cool
 
-all:
+blah.c:
 	echo one is defined: $(one)
 
 other:

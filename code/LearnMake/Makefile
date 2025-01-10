@@ -1,8 +1,10 @@
-foo = ok
+bar =
+foo = $(bar)
 
 all:
-ifeq ($(foo), ok)
-	echo "foo equals ok"
-else
-	echo "nope"
+ifdef foo
+	echo "foo is defined"
+endif
+ifndef bar
+	echo "but bar is not"
 endif

@@ -1,4 +1,6 @@
 .idea/
 .fleet/
 *.out
+*.o
 .DS_Store
+*.gz

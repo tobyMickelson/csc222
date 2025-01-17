@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "cards.hh"
+#include "cards.hpp"
 
 
 struct Blackjack {

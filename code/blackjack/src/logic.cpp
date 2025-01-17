@@ -2,8 +2,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
-#include "cards.hh"
-#include "logic.hh"
+#include "cards.hpp"
+#include "logic.hpp"
 
 
 Blackjack::Blackjack(int players) {
@@ -43,7 +43,7 @@ int Blackjack::player_total(int player) {
   int total = 0;
 
   for (Card card : players[player]) {
-    switch(card.rank) {
+    switch (card.rank) {
       case Ace:
         total += 1;
         break;

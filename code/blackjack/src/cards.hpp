@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <vector>
 
 
@@ -31,6 +32,8 @@ struct Card {
     Rank rank;
 
     Card(Suit suit, Rank rank);
+
+    std::string initials();
 };
 
 std::vector<Card> new_deck();

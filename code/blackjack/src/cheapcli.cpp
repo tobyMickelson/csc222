@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cstdio>
 #include <iostream>
 #include <vector>
 #include "cards.hpp"
@@ -20,7 +21,7 @@ std::vector<bool> cheap_hit() {
   bool do_loop = true;
   
   while (do_loop) {
-    std::cin >> character;
+    character = std::getchar();
     switch (character) {
       case '1':
       case 'Y':
@@ -48,5 +49,6 @@ void run_cheap_cli(int players) {
     hits = cheap_hit();
     if (std::none_of(hits.begin(), hits.end(), [](bool b) {return b;}))
       break;
+    game.hit(hits);
   }
 }

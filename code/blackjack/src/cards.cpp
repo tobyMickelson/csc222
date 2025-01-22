@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <chrono>
 #include <random>
 #include <string>
 #include <vector>
@@ -87,7 +88,8 @@ std::vector<Card> new_deck() {
 std::vector<Card> shuffle(std::vector<Card> deck) {
   std::vector<Card> shuffled(deck);
 
-  std::default_random_engine rng = std::default_random_engine();
+  std::default_random_engine rng = std::default_random_engine(
+      std::chrono::system_clock::now().time_since_epoch().count());
   std::shuffle(shuffled.begin(), shuffled.end(), rng);
 
   return shuffled;

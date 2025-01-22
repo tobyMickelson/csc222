@@ -8,10 +8,11 @@
 
 Blackjack::Blackjack(int players) {
   if (players < 2) {
-    std::cerr << "ERROR: GAME CANNOT BE PLAYED WITH FEWER THAN TWO PLAYERS" << std::endl;
-    exit(EXIT_FAILURE);
+    error_message = "ERROR: GAME CANNOT BE PLAYED WITH FEWER THAN TWO PLAYERS";
+    error = true;
+    players = 1;
   };
-  
+
   deck = shuffle(new_deck());
 
   for (int player = 0; player < players; player++) {
@@ -25,8 +26,12 @@ Blackjack::Blackjack(int players) {
 
 void Blackjack::hit(std::vector<bool> hits) {
   if (hits.size() != players.size()) {
-    std::cerr << "ERROR: NUMBER OF HITS MUST EQUAL THE NUMBER OF PLAYERS" << std::endl;
-    exit(EXIT_FAILURE);
+    error_message = "ERROR: NUMBER OF HITS MUST EQUAL THE NUMBER OF PLAYERS";
+    error = true;
+    for (bool item : hits)
+      hits.pop_back();
+    for (int player = 0; player < players.size(); player++)
+      hits.push_back(false);
   }
 
   for (int player = 0; player < players.size(); player++) {

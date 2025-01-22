@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include "cli.hpp"
+#include "prettycli.hpp"
 
 
 void help(const std::string name);
@@ -26,9 +26,9 @@ void help(const std::string name) {
 }
 
 void cli() {
-  //run_cheap_cli(3);
-  std::cerr << "ERROR: CLI NOT IMPLIMENTED YET" << std::endl;
-  exit(EXIT_FAILURE);
+  run_pretty_cli();
+  //std::cerr << "ERROR: CLI NOT IMPLIMENTED YET" << std::endl;
+  //exit(EXIT_FAILURE);
 }
 
 void tui() {

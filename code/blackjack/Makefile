@@ -1,7 +1,7 @@
 TARGET_EXEC := blackjack
 TARGET_TEST := test
-BUILD_DIR := ./build
-SRC_DIRS := ./src
+BUILD_DIR := build
+SRC_DIRS := src
 
 CXX := clang++
 STD := c++17
@@ -33,6 +33,10 @@ $(BUILD_DIR)/%.cpp.o: %.cpp
 .PHONY: test
 test: $(BUILD_DIR)/$(TARGET_TEST)
 	./$(BUILD_DIR)/$(TARGET_TEST)
+
+.PHONY: testv
+testv: $(BUILD_DIR)/$(TARGET_TEST)
+	./$(BUILD_DIR)/$(TARGET_TEST) --success=true
 
 .PHONY: clean
 clean:

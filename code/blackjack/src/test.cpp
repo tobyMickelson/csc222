@@ -16,3 +16,10 @@ TEST_CASE("Test creation of game from state") {
 
   CHECK(pretty_to_string(game.players) == "A♠");
 }
+
+TEST_CASE("Test hitting") {
+  Blackjack game = Blackjack(2);
+  int prev_len = pretty_to_string(game.players).length();
+  game.hit(std::vector<bool> (2, true));
+  CHECK(pretty_to_string(game.players).length() > prev_len);
+}

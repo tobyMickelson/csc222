@@ -23,6 +23,22 @@ void pretty_print(std::vector<std::vector<Card> > players) {
   refresh();
 }
 
+std::string pretty_to_string(std::vector<std::vector<Card> > players) {
+  std::string output = "";
+  
+  for (int player = 0; player < players.size(); player++) {
+    for (int card = 0; card < players[player].size(); card++) {
+      output += players[player][card].initials().data();
+      if (card + 1 != players[player].size())
+        output += " ";
+      else if (player + 1 != players.size())
+        output += "   :   ";
+    }
+  }
+
+  return output;
+}
+
 std::vector<bool> pretty_hit(int players) {
   std::vector<bool> hits;
   char character;

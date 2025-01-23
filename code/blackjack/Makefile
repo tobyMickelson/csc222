@@ -4,7 +4,7 @@ BUILD_DIR := ./build
 SRC_DIRS := ./src
 
 CXX := clang++
-STD := c++11
+STD := c++17
 
 LDLIBS := -lncursesw
 LDPATHS := -L/Users/1008814/.local/homebrew/opt/ncurses/lib
@@ -20,10 +20,10 @@ INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 CPPFLAGS := $(INC_FLAGS) --std=$(STD) -MMD -MP
 
-$(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
+$(BUILD_DIR)/$(TARGET_EXEC): $(OBJS_MAIN)
 	$(CXX) $(OBJS_MAIN) -o $@ $(LDFLAGS) $(LDPATHS) $(LDLIBS)
 
-$(BUILD_DIR)/$(TARGET_TEST): $(OBJS)
+$(BUILD_DIR)/$(TARGET_TEST): $(OBJS_TEST)
 	$(CXX) $(OBJS_TEST) -o $@ $(LDFLAGS) $(LDPATHS) $(LDLIBS)
 
 $(BUILD_DIR)/%.cpp.o: %.cpp

@@ -1,6 +1,3 @@
-#include <cstdlib>
-#include <iostream>
-#include <stdlib.h>
 #include <vector>
 #include "cards.hpp"
 #include "logic.hpp"
@@ -22,6 +19,11 @@ Blackjack::Blackjack(int players) {
     this->players.push_back(hand);
     scores.push_back(player_total(player));
   }
+}
+
+Blackjack::Blackjack(std::vector<std::vector<Card> > state) {
+  for (std::vector<Card> hand : state)
+    players.push_back(hand);
 }
 
 void Blackjack::hit(std::vector<bool> hits) {

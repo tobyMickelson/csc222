@@ -40,6 +40,8 @@ std::vector<bool> cheap_hit() {
   return hits;
 }
 
+bool is_true(bool b) {return b;}
+
 void run_cheap_cli(int players) {
   Blackjack game = Blackjack(players);
   std::vector<bool> hits;
@@ -47,7 +49,7 @@ void run_cheap_cli(int players) {
   while (true) {
     cheap_print(game.players);
     hits = cheap_hit();
-    if (std::none_of(hits.begin(), hits.end(), [](bool b) {return b;}))
+    if (std::none_of(hits.begin(), hits.end(), is_true))
       break;
     game.hit(hits);
   }

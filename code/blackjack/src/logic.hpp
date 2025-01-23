@@ -14,6 +14,7 @@ struct Blackjack {
   std::string error_message;
 
   Blackjack(int players);
+  Blackjack(std::vector<std::vector<Card> > state);
   void hit(std::vector<bool> hits);
   int player_total(int player);
 };

@@ -22,8 +22,10 @@ Blackjack::Blackjack(int players) {
 }
 
 Blackjack::Blackjack(std::vector<std::vector<Card> > state) {
-  for (std::vector<Card> hand : state)
-    players.push_back(hand);
+  for (int player = 0; player < state.size(); player++) {
+    players.push_back(state[player]);
+    scores.push_back(player_total(player));
+  }
 }
 
 void Blackjack::hit(std::vector<bool> hits) {

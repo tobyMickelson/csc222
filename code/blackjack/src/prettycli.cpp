@@ -9,8 +9,12 @@
 #define NEWLINE "\n"
 
 
-void pretty_print(std::vector<std::vector<Card> > players) {
+void pretty_print(std::vector<std::vector<Card> > players, std::vector<int> scores) {
   for (int player = 0; player < players.size(); player++) {
+    if (scores[player] > 21) {
+      attrset(COLOR_PAIR(PAIR_ALERT));
+    }
+
     for (int card = 0; card < players[player].size(); card++) {
       printw("%s", players[player][card].initials().data());
       if (card + 1 != players[player].size())
@@ -18,6 +22,8 @@ void pretty_print(std::vector<std::vector<Card> > players) {
       else if (player + 1 != players.size())
         printw("   :   ");
     }
+
+    attrset(COLOR_PAIR(0));
   }
   printw(NEWLINE);
   refresh();
@@ -25,7 +31,6 @@ void pretty_print(std::vector<std::vector<Card> > players) {
 
 std::string pretty_to_string(std::vector<std::vector<Card> > players) {
   std::string output = "";
-  
   for (int player = 0; player < players.size(); player++) {
     for (int card = 0; card < players[player].size(); card++) {
       output += players[player][card].initials().data();
@@ -82,13 +87,9 @@ int get_players() {
     refresh();
     echo();
     players = getch() - '0';
-    {
-      printw("%d", players);
-      refresh();
-    }
     noecho();
   
-    if (players == 45) {
+    if (players == -21) {
       endwin();
       exit(EXIT_SUCCESS);
     } else if (players < 2 || players > 9) {
@@ -123,7 +124,7 @@ void run_pretty_cli() {
   
   Blackjack game = Blackjack(players);
   while (true) {
-    pretty_print(game.players);
+    pretty_print(game.players, game.scores);
     hits = pretty_hit(players);
     if (std::none_of(hits.begin(), hits.end(), [](bool b) {return b;}))
       break;

@@ -126,8 +126,11 @@ void run_pretty_cli() {
   while (true) {
     pretty_print(game.players, game.scores);
     hits = pretty_hit(players);
-    if (std::none_of(hits.begin(), hits.end(), [](bool b) {return b;}))
+    if (std::none_of(hits.begin(), hits.end(), [](bool b) {return b;})) {
+      printw("Press any key to exit");
+      getch();
       break;
+    }
     game.hit(hits);
     if (game.error) {
       attrset(COLOR_PAIR(PAIR_ALERT));

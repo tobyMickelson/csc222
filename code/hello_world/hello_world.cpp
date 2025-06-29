@@ -6,7 +6,7 @@ int main() {
 
     cout << "The answer to the ultimate question of life, ";
     cout << "the universe and everything is (of course) ";
-    cout << num  << "." << endl;
+    cout << num << "." << endl;
 
     return 0;
 }
